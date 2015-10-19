@@ -12,12 +12,9 @@ namespace cis237assignment3
         public string material;
         public string model;
         public string color;
-        //public decimal baseCost;
 
         public decimal totalCost;
-        //public int materialCost;
-        //public int modelCost;
-        //public int colorCost;
+
 
         public virtual decimal TotalCost
         {
@@ -44,6 +41,7 @@ namespace cis237assignment3
         }
 
 
+
         public Droid(string Material, string Model, string Color)
         {
             this.material = Material;
@@ -56,7 +54,23 @@ namespace cis237assignment3
             return this.Material + " " + this.Model + " " + this.Color;
         }
 
-        public abstract void CalculateTotalCost();
+        public virtual void CalculateBaseCost(int Options)
+        {
+
+        }
+
+        public virtual void CalculateTotalCost()
+        {
+
+        }
+
+        public virtual string ReturnTotalString()
+        {
+            return this.totalCost.ToString();
+        }
+
+
+        
 
         
 

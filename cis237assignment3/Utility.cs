@@ -14,6 +14,11 @@ namespace cis237assignment3
         public string toolBoxYesNo;
         public string computerConnectionYesNo;
         public string armYesNo;
+        public string costString;
+        public int baseCost;
+        public int toolCost = 0;
+        public int compCost = 0;
+        public int armCost = 0;
 
 
 
@@ -23,34 +28,49 @@ namespace cis237assignment3
         {
             this.toolBox = ToolBox;
             if (toolBox)
+            {
                 toolBoxYesNo = "ToolBox = Yes";
+                toolCost = 10;
+            }
             if (!toolBox)
                 toolBoxYesNo = "ToolBox = No";
                 
             this.computerConnection = ComputerConnection;
             if (computerConnection)
+            {
                 computerConnectionYesNo = "Computer Connection = Yes";
-            if (!computerConnection)
+                compCost = 20;
+            }
+            if (!computerConnection)            
                 computerConnectionYesNo = "Computer Connection = No";
 
             this.arm = Arm;
             if (arm)
+            {
                 armYesNo = "Arm = Yes";
+                armCost = 30;
+            }
             if (!arm)
                 armYesNo = "Arm = No";
         }
 
-        public override string ToString()
+
+
+        public override void CalculateBaseCost(int Options)
         {
-            return this.Material + " - " + this.Model + " - " + this.Color + " - " + toolBoxYesNo + " - " + computerConnectionYesNo + " - " + armYesNo;
+            baseCost = toolCost + compCost + armCost + Options;
+            costString = baseCost.ToString();
         }
 
         public override void CalculateTotalCost()
         {
-            
+            base.totalCost += baseCost;
         }
 
-
+        public override string ToString()
+        {
+            return this.Material + " - " + this.Model + " - " + this.Color + " - " + toolBoxYesNo + " - " + computerConnectionYesNo + " - " + armYesNo + " for $" + costString;
+        }
 
 
     }

@@ -9,7 +9,9 @@ namespace cis237assignment3
     class Protocol : Droid
     {
         public int numberLanguages;
-        const int costPerlanguage = 5;
+        public int baseCost;
+        const int costPerlanguage = 10;
+        public string costString;
 
         public int NumberLanguages
         {
@@ -18,20 +20,36 @@ namespace cis237assignment3
         }
 
 
+
+
         public Protocol(string Material, string Model, string Color, int NumberLanguages)
             : base(Material, Model, Color)
         {
             this.numberLanguages = NumberLanguages;
         }
 
-        public override string ToString()
+
+
+        public override void CalculateBaseCost(int Options)
         {
-            return this.Material + " - " + this.Model + " - " + this.Color + " - " + numberLanguages + " language(s)";
+            baseCost = (numberLanguages * 10) + Options;
+            costString = baseCost.ToString();
         }
 
         public override void CalculateTotalCost()
         {
-            TotalCost = numberLanguages * costPerlanguage;
+            base.totalCost += baseCost;
+            
+        }
+
+        public override string ToString()
+        {
+            return this.Material + " - " + this.Model + " - " + this.Color + " - " + numberLanguages + " language(s) for $" + costString;
+        }
+
+        public override string ReturnTotalString()
+        {
+            return base.ReturnTotalString();
         }
 
 

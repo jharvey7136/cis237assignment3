@@ -11,7 +11,9 @@ namespace cis237assignment3
         public bool trashCompactor;
         public bool vacuum;
         public string trashCompactorYesNo;
-        public string vacuumYesNo;
+        public string vacuumYesNo;        
+        public int trashCost = 0;
+        public int vacuumCost = 0;
 
 
         public Janitorial(string Material, string Model, string Color, bool ToolBox, bool ComputerConnection, bool Arm, bool TrashCompactor,
@@ -20,30 +22,40 @@ namespace cis237assignment3
         {
             this.trashCompactor = TrashCompactor;
             if (trashCompactor)
+            {
                 trashCompactorYesNo = "Trash Compactor = Yes";
+                trashCost = 50;
+            }
             if (!trashCompactor)
                 trashCompactorYesNo = "Trash Compactor = No";
 
             this.vacuum = Vacuum;
             if (vacuum)
+            {
                 vacuumYesNo = "Vacuum = Yes";
+                vacuumCost = 30;
+            }
             if (!vacuum)
                 vacuumYesNo = "Vacuum = No";
 
         }
 
-        public override string ToString()
+        public override void CalculateBaseCost(int Options)
         {
-            return this.Material + " - " + this.Model + " - " + this.Color + " - " + toolBoxYesNo + " - " + computerConnectionYesNo + " - " + armYesNo + " - " +
-                trashCompactorYesNo + " - " + vacuumYesNo;
+            baseCost = toolCost + compCost + armCost + trashCost + vacuumCost + Options;
+            costString = baseCost.ToString();
         }
 
         public override void CalculateTotalCost()
         {
-
+            base.totalCost += baseCost;
         }
 
-
+        public override string ToString()
+        {
+            return this.Material + " - " + this.Model + " - " + this.Color + " - " + toolBoxYesNo + " - " + computerConnectionYesNo + " - " + armYesNo + " - " +
+                trashCompactorYesNo + " - " + vacuumYesNo + " for $" + costString;
+        }
 
     }
 }
