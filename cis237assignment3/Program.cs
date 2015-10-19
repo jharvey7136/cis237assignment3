@@ -19,10 +19,6 @@ namespace cis237assignment3
             Console.SetWindowSize(windowwidth, windowheight);
 
             MainMenu.MainMenu();
-
-
-
-
         }
     }
 }

@@ -14,14 +14,9 @@ namespace cis237assignment3
         public string toolBoxYesNo;
         public string computerConnectionYesNo;
         public string armYesNo;
-        public string costString;
-        public int baseCost;
         public int toolCost = 0;
         public int compCost = 0;
         public int armCost = 0;
-
-
-
 
         public Utility(string Material, string Model, string Color, bool ToolBox, bool ComputerConnection, bool Arm)
             : base(Material, Model, Color)
@@ -54,11 +49,9 @@ namespace cis237assignment3
                 armYesNo = "Arm = No";
         }
 
-
-
-        public override void CalculateBaseCost(int Options)
+        public override void CalculateBaseCost()
         {
-            baseCost = toolCost + compCost + armCost + Options;
+            baseCost = modelCost + materialCost + colorCost + toolCost + compCost + armCost;
             costString = baseCost.ToString();
         }
 
@@ -71,7 +64,5 @@ namespace cis237assignment3
         {
             return this.Material + " - " + this.Model + " - " + this.Color + " - " + toolBoxYesNo + " - " + computerConnectionYesNo + " - " + armYesNo + " for $" + costString;
         }
-
-
     }
 }

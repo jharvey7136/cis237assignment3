@@ -40,9 +40,9 @@ namespace cis237assignment3
 
         }
 
-        public override void CalculateBaseCost(int Options)
+        public override void CalculateBaseCost()
         {
-            baseCost = toolCost + compCost + armCost + trashCost + vacuumCost + Options;
+            baseCost = materialCost + modelCost + colorCost + toolCost + compCost + armCost + trashCost + vacuumCost;
             costString = baseCost.ToString();
         }
 

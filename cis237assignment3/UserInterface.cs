@@ -14,21 +14,21 @@ namespace cis237assignment3
 
         //Protocol Selection Variables
         private int numLangauges;
-        private int protocolCost = 0;   
+  
 
         //Utility Selection Variables
-        private int utilityCost = 0;
+
         private bool toolBox;
         private bool computerConnection;
         private bool arm;
 
         //Janitor Selection Options
-        private int janitorCost = 0;
+
         private bool trashCompactor;
         private bool vacuum;
 
         //Astromech Selection Options
-        private int astromechCost = 0;
+
         private int numberShips = 0;
         private bool fireExtinquisher;
 
@@ -136,13 +136,13 @@ namespace cis237assignment3
         //*************************ADD PROTOCOL METHOD*****************************//
         public void AddProtocol()
         {
-            DroidOptions("Protocol", 1000);
+            DroidOptions("Protocol");
 
             //ADD NEW PROTOCOL TO DROID COLLECTION AND DISPLAY CONFIRMATION
             Console.WriteLine();
             Droid newProtocol = new Protocol(materailSelectionString, "Protocol", colorSelectionString, numLangauges);
             droidCollection.AddNewDroid(newProtocol);
-            newProtocol.CalculateBaseCost(protocolCost);
+            newProtocol.CalculateBaseCost();
             newProtocol.CalculateTotalCost();
             totalCost += newProtocol.totalCost;
             Console.WriteLine(newProtocol + " has been added to droid collection.\n");
@@ -154,13 +154,13 @@ namespace cis237assignment3
         //*************************ADD UTILITY METHOD*****************************//
         public void AddUtility()
         {
-            DroidOptions("Utility", 750);
+            DroidOptions("Utility");
 
             //ADD NEW UTILITY TO DROID COLLECTION AND DISPLAY CONFIRMATION
             Console.WriteLine();
             Droid newUtility = new Utility(materailSelectionString, "Utility", colorSelectionString, toolBox, computerConnection, arm);
             droidCollection.AddNewDroid(newUtility);
-            newUtility.CalculateBaseCost(utilityCost);
+            newUtility.CalculateBaseCost();
             newUtility.CalculateTotalCost();
             totalCost += newUtility.totalCost;
 
@@ -173,12 +173,12 @@ namespace cis237assignment3
         //**********************ADD JANITOR METHOD****************************//
         public void AddJanitor()
         {
-            DroidOptions("Janitor", 500);
+            DroidOptions("Janitor");
 
             Console.WriteLine();
             Droid newJanitor = new Janitorial(materailSelectionString, "Janitor", colorSelectionString, toolBox, computerConnection, arm, trashCompactor, vacuum);
             droidCollection.AddNewDroid(newJanitor);
-            newJanitor.CalculateBaseCost(janitorCost);
+            newJanitor.CalculateBaseCost();
             newJanitor.CalculateTotalCost();
             totalCost += newJanitor.totalCost;
 
@@ -191,13 +191,13 @@ namespace cis237assignment3
         //**********************ADD ASTROMECH METHOD*************************//
         public void AddAstromech()
         {
-            DroidOptions("Astromech", 250);
+            DroidOptions("Astromech");
 
             Console.WriteLine();
             Droid newAstromech = new Astromech(materailSelectionString, "Astromech", colorSelectionString, toolBox, computerConnection, arm, fireExtinquisher, numberShips);
             droidCollection.AddNewDroid(newAstromech);
 
-            newAstromech.CalculateBaseCost(astromechCost);
+            newAstromech.CalculateBaseCost();
             newAstromech.CalculateTotalCost();
             totalCost += newAstromech.totalCost;
 
@@ -223,7 +223,7 @@ namespace cis237assignment3
 
 
         //************METHOD FOR ADDING DROID OPTIONS BASED ON MODEL SELECTED**************//
-        public void DroidOptions(string Model, int BaseCost)
+        public void DroidOptions(string Model)
         {            
                 //MATERIAL SELECTION
                 Console.WriteLine("Select " + Model + " Material\n");
@@ -234,22 +234,21 @@ namespace cis237assignment3
                 {
                     selectionInt = int.Parse(Console.ReadLine());
                     Console.WriteLine();
-                    if (selectionInt == 1)
-                    {
-                        materailSelectionString = "Iron";
-                        BaseCost += 150;
-                    }
-                    if (selectionInt == 2)
-                    {
+
+                    if (selectionInt == 1)                    
+                        materailSelectionString = "Iron";                       
+                    
+                    if (selectionInt == 2)                    
                         materailSelectionString = "Steel";
-                        BaseCost += 200;
-                    }
+                        
+                    
                 }
                 catch
                 {
                     Console.WriteLine();
                     Console.WriteLine("Input Error");
                 }
+
                 //COLOR SELECTION
                 Console.WriteLine("Select " + Model + " Color\n");
                 Console.WriteLine("1 - White  - $75");
@@ -260,16 +259,14 @@ namespace cis237assignment3
                 {
                     selectionInt = int.Parse(Console.ReadLine());
                     Console.WriteLine();
-                    if (selectionInt == 1)
-                    {
-                        colorSelectionString = "White";
-                        BaseCost += 75;
-                    }
-                    if (selectionInt == 2)
-                    {
+
+                    if (selectionInt == 1)                    
+                        colorSelectionString = "White";                        
+                   
+                    if (selectionInt == 2)                    
                         colorSelectionString = "Black";
-                        BaseCost += 100;
-                    }
+                        
+                    
                 }
                 catch
                 {
@@ -430,14 +427,7 @@ namespace cis237assignment3
                     }
                     Console.WriteLine();
                 }
-                    if (Model == "Protocol")
-                        protocolCost = BaseCost;
-                    if (Model == "Utility")
-                        utilityCost = BaseCost;
-                    if (Model == "Janitor")
-                        janitorCost = BaseCost;
-                    if (Model == "Astromech")
-                        astromechCost = BaseCost; 
+
         }
         //************END METHOD FOR ADDING DROID OPTIONS BASED ON MODEL SELECTED**************//
 

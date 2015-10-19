@@ -30,14 +30,9 @@ namespace cis237assignment3
             shipsCost = numberShips * 200;
         }
 
-
-
-
-
-
-        public override void CalculateBaseCost(int Options)
+        public override void CalculateBaseCost()
         {
-            baseCost = toolCost + compCost + armCost + fireCost + shipsCost + Options;
+            baseCost = modelCost + materialCost + colorCost + toolCost + compCost + armCost + fireCost + shipsCost;
             costString = baseCost.ToString();
         }
 
