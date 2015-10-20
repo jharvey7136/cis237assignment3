@@ -13,22 +13,18 @@ namespace cis237assignment3
         private int droidSelection;
 
         //Protocol Selection Variables
-        private int numLangauges;
-  
+        private int numLangauges;  
 
         //Utility Selection Variables
-
         private bool toolBox;
         private bool computerConnection;
         private bool arm;
 
         //Janitor Selection Options
-
         private bool trashCompactor;
         private bool vacuum;
 
         //Astromech Selection Options
-
         private int numberShips = 0;
         private bool fireExtinquisher;
 
@@ -37,14 +33,9 @@ namespace cis237assignment3
         private string materailSelectionString;
         private string colorSelectionString;
 
-        private decimal totalCost = 0;
+        private decimal totalCost = 0;        
 
-        
-
-        DroidCollection droidCollection = new DroidCollection(50);
-        
-
-        
+        DroidCollection droidCollection = new DroidCollection(50); 
 
         public UserInterface()
         {

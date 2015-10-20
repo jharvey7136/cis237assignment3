@@ -8,12 +8,14 @@ namespace cis237assignment3
 {
     class Astromech : Utility
     {
+        //Variables
         public bool fireExtinguisher;
         public int numberShips;
         public int shipsCost;
         public int fireCost;
         public string fireExtinguisherYesNo;
 
+        //Constructor which inherits from Utility class, which inherits from Droid class
         public Astromech(string Material, string Model, string Color, bool ToolBox, bool ComputerConnection, bool Arm, bool FireExtinguisher, int NumberShips)
             : base(Material, Model, Color, ToolBox, ComputerConnection, Arm)
         {
@@ -30,22 +32,28 @@ namespace cis237assignment3
             shipsCost = numberShips * 200;
         }
 
+        //***************METHOD TO CALCULATE BASE COST**************//
         public override void CalculateBaseCost()
         {
             baseCost = modelCost + materialCost + colorCost + toolCost + compCost + armCost + fireCost + shipsCost;
             costString = baseCost.ToString();
         }
+        //***************END METHOD TO CALCULATE BASE COST**************//
 
+        //***************METHOD TO CALCULATE TOTAL COST**************//
         public override void CalculateTotalCost()
         {
             base.totalCost += baseCost;
         }
+        //***************END METHOD TO CALCULATE TOTAL COST**************//
 
+        //**************METHOD THAT OVERRIDES TOSTRING****************//
         public override string ToString()
         {
             return this.Material + " - " + this.Model + " - " + this.Color + " - " + toolBoxYesNo + " - " + computerConnectionYesNo + " - " + armYesNo + " - " +
                 fireExtinguisherYesNo + " - with " + numberShips.ToString() + " ship(s)" + " for $" + costString;
         }
+        //**************END METHOD THAT OVERRIDES TOSTRING****************//
 
 
     }

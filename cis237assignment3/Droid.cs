@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace cis237assignment3
 {
+    //Abstract Droid class which uses IDroid Interface
     abstract class Droid : IDroid
     {
 
@@ -19,6 +20,7 @@ namespace cis237assignment3
         public decimal baseCost;
         public decimal totalCost;
 
+        //Properties
         public virtual decimal TotalCost
         {
             get { return totalCost; }
@@ -43,6 +45,7 @@ namespace cis237assignment3
             set { color = value; }
         }
 
+        //Costructor to set material, model, and color costs
         public Droid(string Material, string Model, string Color)
         {
             this.material = Material;
@@ -69,22 +72,25 @@ namespace cis237assignment3
                 colorCost = 100;
         }
 
+        //***************METHOD TO CALCULATE BASE COST**************//
         public virtual void CalculateBaseCost()
         {
             baseCost = materialCost + modelCost + colorCost;
         }
+        //***************END METHOD TO CALCULATE BASE COST**************//
 
+        //***************METHOD TO CALCULATE TOTAL COST**************//
         public virtual void CalculateTotalCost()
         {
             totalCost += baseCost;
         }
+        //***************END METHOD TO CALCULATE TOTAL COST**************//
 
+        //**************METHOD THAT OVERRIDES TOSTRING****************//
         public override string ToString()
         {
             return this.Material + " " + this.Model + " " + this.Color;
         }
-        
-
-
+        //**************END METHOD THAT OVERRIDES TOSTRING****************//
     }
 }

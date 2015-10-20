@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//John Harvey - CIS237 Assignment 3 - Due:10/20/15
+//Droid program for The Jawas on Tatooin
+
 namespace cis237assignment3
 {
     class Program

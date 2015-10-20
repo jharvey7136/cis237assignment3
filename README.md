@@ -2,7 +2,7 @@
 ## Due: 10-20-2015
 
 ## Author
-
+John Harvey
 
 
 ## Description
@@ -91,8 +91,14 @@ If you did not do well on Assignment 1, you may want to look at the Assignment 1
 
 It may be benificial for you to create extra methods within the droid sub classes. You are not limited to the ones mentioned. You may even find it useful to make some additional ones that are protected and virtual.
 
-## Outside Resources Used
+##Completed Program Description
+The program will load a main menu, giving the user the option to add a droid, print the droid list, or exit. If add droid is selected, the user is presented with available options and prices. Once add droid is completed, it will be added to the droid collection with a confirmation message. From the main menu, the user will be able to print the droid collection and view specific information and prices for each droid, along with a total cost for all droids.
 
+## Outside Resources Used
+I referred to the in class assignment 3 when making the interface and abstract droid class, as well as your assignment 1 to make the droid collection class. I didn't use anything from stack overflow.
 
 
 ## Known Problems, Issues, And/Or Errors in the Program
+I've ran the program multiple times and haven't found anything that will break it yet. If you have bad input on the main menu it will loop you through the main menu options, and if you have bad input when selecting droid options it will skip that option and continue.
+
+

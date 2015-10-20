@@ -8,6 +8,7 @@ namespace cis237assignment3
 {
     class Utility : Droid
     {
+        //Variables
         public bool toolBox;
         public bool computerConnection;
         public bool arm;
@@ -18,6 +19,7 @@ namespace cis237assignment3
         public int compCost = 0;
         public int armCost = 0;
 
+        //Constructor which inherits from Droid class
         public Utility(string Material, string Model, string Color, bool ToolBox, bool ComputerConnection, bool Arm)
             : base(Material, Model, Color)
         {
@@ -49,20 +51,26 @@ namespace cis237assignment3
                 armYesNo = "Arm = No";
         }
 
+        //***************METHOD TO CALCULATE BASE COST**************//
         public override void CalculateBaseCost()
         {
             baseCost = modelCost + materialCost + colorCost + toolCost + compCost + armCost;
             costString = baseCost.ToString();
         }
+        //***************END METHOD TO CALCULATE BASE COST**************//
 
+        //***************METHOD TO CALCULATE TOTAL COST**************//
         public override void CalculateTotalCost()
         {
             base.totalCost += baseCost;
         }
+        //***************END METHOD TO CALCULATE TOTAL COST**************//
 
+        //**************METHOD THAT OVERRIDES TOSTRING****************//
         public override string ToString()
         {
             return this.Material + " - " + this.Model + " - " + this.Color + " - " + toolBoxYesNo + " - " + computerConnectionYesNo + " - " + armYesNo + " for $" + costString;
         }
+        //**************END METHOD THAT OVERRIDES TOSTRING****************//
     }
 }

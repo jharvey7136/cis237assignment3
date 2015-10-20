@@ -11,18 +11,26 @@ namespace cis237assignment3
         Droid[] droidCollection;
         int droidCollectionLength;
 
+
+        //***************METHOD TO CREATE NEW DROID COLLECTION ARRAY***************//
         public DroidCollection(int size)
         {
             droidCollection = new Droid[size];
             droidCollectionLength = 0;
         }
+        //***************END METHOD TO CREATE NEW DROID COLLECTION ARRAY***************//
 
+
+        //*******************METHOD TO ADD NEW DROID TO COLLECTION**************//
         public void AddNewDroid(Droid newDroid)
         {
             droidCollection[droidCollectionLength] = newDroid;
             droidCollectionLength++;
         }
+        //*******************END METHOD TO ADD NEW DROID TO COLLECTION**************//
 
+
+        //****************METHOD TO GET PRINT STRING FOR ALL ITEMS********************//
         public string[] GetPrintStringForAllItems()
         {
             string[] allItemsString = new string[droidCollectionLength];
@@ -41,7 +49,10 @@ namespace cis237assignment3
             }
             return allItemsString;
         }
+        //****************END METHOD TO GET PRINT STRING FOR ALL ITEMS********************//
 
+
+        //****************METHOD TO DISPLAY ALL DROIDS**********************//
         public void DisplayAllDroids(string[] allItemsOutput)
         {
             Console.WriteLine();
@@ -50,6 +61,7 @@ namespace cis237assignment3
                 Console.WriteLine(itemOutput);
             }
         }
+        //****************END METHOD TO DISPLAY ALL DROIDS**********************//
 
 
 
